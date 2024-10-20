@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style.css"> <!-- Corregido el atributo href -->
+    <link rel="icon" href="C:\Users\USER\Desktop\Poema de amor" type="image/x-icon"> <!-- Añadido el favicon -->
+    <script>
+        // Función para manejar el envío del formulario
+        async function handleSubmit(event) {
+            event.preventDefault(); // Evitar el envío del formulario
+
+            // Obtener los valores de los campos
+            const nombre = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const dob = document.getElementById('dob').value;
+
+            // Validaciones simples
+            if (password !== confirmPassword) {
+                alert('Las contraseñas no coinciden.');
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                alert('Por favor, introduce un correo electrónico válido.');
+                return;
+            }
+
+            // Enviar datos al servidor
+            const response = await fetch('http://localhost:3000/api/registro', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ nombre, email, password, dob }),
+            });
+
+            if (response.ok) {
+                alert('Registro exitoso');
+            } else {
+                alert('Error al registrar el usuario');
+            }
+        }
+
+        // Función simple para validar el formato de email
+        function validateEmail(email) {
+            const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        // Asignar la función de manejo al evento submit
+        window.onload = function () {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', handleSubmit);
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h4>Registro</h4>
+        
+        <!-- Formulario sin acción, el manejo será hecho por JavaScript -->
+        <form>
+            <p>Nombre: <input type="text" id="name" name="nombre" required /></p> 
+            <p>Correo electrónico: <input type="email" id="email" name="email" required /></p>
+            <p>Contraseña: <input type="password" id="password" name="password" required /></p>
+            <p>Confirmación de contraseña: <input type="password" id="confirm-password" name="confirm-password" required /></p>
+            <p>Fecha de nacimiento: <input type="date" id="dob" name="dob" required /></p>
+            <button type="submit" class="buttons">Enviar</button>
+        </form>   
+    </div>    
+</body>
+</html>

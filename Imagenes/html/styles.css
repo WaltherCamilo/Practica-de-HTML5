@@ -1,0 +1,115 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Title and Headings */
+h1 {
+    font-size: 2.5rem;
+    color: #db7093;
+    text-align: center;
+}
+
+h2, h3, h4 {
+    color: #db7093;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
+
+h4 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Text Elements */
+p {
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+span.Poema {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* Article Styles */
+article {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-left: 4px solid #db7093;
+    margin-bottom: 20px;
+}
+
+p.article {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Additional Styles */
+.container-relative {
+    position: relative;
+}
+
+.container-relative img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: auto;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+}
